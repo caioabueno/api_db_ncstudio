@@ -4,13 +4,11 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Plano extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+    // associações/relações
     static associate(models) {
-      // define association here
+      Plano.hasMany(models.Aluno, {
+        foreignKey: 'id_plano'
+      });
     }
   }
   Plano.init({
@@ -20,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Plano',
+    tableName: 'plano',
   });
   return Plano;
 };

@@ -2,8 +2,8 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Alunos', {
-      id: {
+    await queryInterface.createTable('aluno', {
+      id_aluno: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -54,6 +54,11 @@ module.exports = {
       status_matricula: {
         type: Sequelize.STRING
       },
+      id_plano: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'plano', key: 'id_plano'  }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -65,6 +70,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Alunos');
+    await queryInterface.dropTable('aluno');
   }
 };

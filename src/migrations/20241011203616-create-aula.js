@@ -2,8 +2,8 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Aulas', {
-      id: {
+    await queryInterface.createTable('aula', {
+      id_aula: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -18,6 +18,11 @@ module.exports = {
       duracao: {
         type: Sequelize.TIME
       },
+      id_professor: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'professor', key: 'id_professor'  }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -29,6 +34,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Aulas');
+    await queryInterface.dropTable('aula');
   }
 };
