@@ -5,6 +5,6 @@ const agendamentoController = new AgendamentoController();
 
 const router = Router();
 
-router.get('/agendamentos', (req, res) => Controller.getAll(req, res));
+router.get('/agendamentos', (req, res) => agendamentoController.getAll(req, res));
 
 module.exports = router;
