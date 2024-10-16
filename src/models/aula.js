@@ -15,6 +15,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Aula.init({
+    id_aula: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      field: 'id_aula'
+    },
     nome: DataTypes.STRING,
     descricao: DataTypes.STRING,
     duracao: DataTypes.TIME
@@ -22,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Aula',
     tableName: 'aula',
+    timestamps: false,
   });
   return Aula;
 };

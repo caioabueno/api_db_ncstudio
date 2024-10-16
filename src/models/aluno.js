@@ -15,6 +15,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Aluno.init({
+    id_aluno: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      field: 'id_aluno'
+    },
     nome: DataTypes.STRING,
     genero: DataTypes.STRING,
     email: DataTypes.STRING,
@@ -34,6 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Aluno',
     tableName: 'aluno',
+    timestamps: false,
   });
   return Aluno;
 };

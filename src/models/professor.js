@@ -12,6 +12,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Professor.init({
+    id_professor: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      field: 'id_professor'
+    },
     nome: DataTypes.STRING,
     cpf: DataTypes.STRING,
     telefone_principal: DataTypes.STRING,
@@ -25,6 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Professor',
     tableName: 'professor',
+    timestamps: false,
   });
   return Professor;
 };

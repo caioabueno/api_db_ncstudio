@@ -3,6 +3,6 @@ const AlunoController = require('../controller/AlunoController.js');
 
 const router = Router();
 
-router.get('/aluno', AlunoController.getAll);
+router.get('/alunos', AlunoController.getAll);
 
 module.exports = router;

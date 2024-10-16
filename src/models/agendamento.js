@@ -15,12 +15,19 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Agendamento.init({
+    id_agendamento: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+      field: 'id_agendamento' // Nome do campo pk
+    },
     data: DataTypes.DATE,
     status: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Agendamento',
     tableName: 'agendamento',
+    timestamps: false,
   });
   return Agendamento;
 };
