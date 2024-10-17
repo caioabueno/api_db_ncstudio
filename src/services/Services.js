@@ -1,3 +1,4 @@
+const { options } = require('../app');
 const dataSource = require('../models')
 
 class Services {
@@ -8,6 +9,11 @@ class Services {
   async getAllRecords() {
     return dataSource[this.model].findAll();
   }
+
+  async createRecord(recordData) {
+    return dataSource[this.model].create(recordData);
+  }
+
 }
 
 module.exports = Services;

@@ -7,10 +7,10 @@ module.exports = (sequelize, DataTypes) => {
     // associações/relações
     static associate(models) {
       Agendamento.belongsTo(models.GradeAula, {
-        foreignKey: 'id_grade_aula'
+        foreignKey: 'id_grade_aula',    
       });
       Agendamento.belongsTo(models.Aluno, {
-        foreignKey: 'id_aluno'
+        foreignKey: 'id_aluno',
       });
     }
   }
