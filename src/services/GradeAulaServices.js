@@ -2,7 +2,7 @@ const Services = require('./Services.js');
 
 class GradeAulaServices extends Services {
   constructor(){
-    super('GradeAula');
+    super('GradeAula', 'id_grade_aula');
   }
 }
 

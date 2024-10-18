@@ -2,10 +2,10 @@ const Services = require('./Services.js');
 
 class AgendamentoServices extends Services {
   constructor(){
-    super('Agendamento');
+    super('Agendamento', 'id_agendamento');
   }
 
-  // //ainda não ta funcionando
+   //ainda não ta funcionando
   // async getAll() {
   //   // select personalizado da tabela agendamento
     

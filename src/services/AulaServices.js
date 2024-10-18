@@ -2,7 +2,7 @@ const Services = require('./Services.js');
 
 class AulaServices extends Services {
   constructor(){
-    super('Aula');
+    super('Aula', 'id_aula');
   }
 }
 

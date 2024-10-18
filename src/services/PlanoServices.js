@@ -2,7 +2,7 @@ const Services = require('./Services.js');
 
 class PlanoServices extends Services {
   constructor(){
-    super('Plano');
+    super('Plano', 'id_plano');
   }
 }
 
