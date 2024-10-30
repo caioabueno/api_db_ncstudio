@@ -5,6 +5,7 @@ const agendamentos = require('./agendamentoRoute.js');
 const planos = require('./planoRoute.js');
 const professores = require('./professorRoute');
 const gradesAula = require('./gradeAulaRoute');
+const historicoCompra = require('./historicoCompraRoute.js')
 
 module.exports = app => {
   app.use(
@@ -14,6 +15,7 @@ module.exports = app => {
     agendamentos,
     planos,
     professores,
-    gradesAula
+    gradesAula,
+    historicoCompra
   );
 }

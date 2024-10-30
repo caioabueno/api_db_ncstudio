@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class Plano extends Model {
     // associações/relações
     static associate(models) {
-      Plano.hasMany(models.Aluno, {
+      Plano.hasMany(models.HistoricoCompra, {
         foreignKey: 'id_plano'
       });
     }
@@ -25,7 +25,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Plano',
     tableName: 'plano',
-    timestamps: false,
   });
   return Plano;
 };

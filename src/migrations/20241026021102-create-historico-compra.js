@@ -2,28 +2,28 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('agendamento', {
-      id_agendamento: {
+    await queryInterface.createTable('historico_compra', {
+      id_historico_compra: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      data: {
-        type: Sequelize.DATE
+      aulas_compradas: {
+        type: Sequelize.INTEGER
       },
-      status: {
-        type: Sequelize.STRING
-      },
-      id_grade_aula: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: { model: 'grade_aula', key: 'id_grade_aula'  }
+      valor_compra: {
+        type: Sequelize.FLOAT
       },
       id_aluno: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'aluno', key: 'id_aluno'  }
+        references: { model: 'aluno', key: 'id_aluno' },
+      },
+      id_plano: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'plano', key: 'id_plano' },
       },
       createdAt: {
         allowNull: false,
@@ -36,6 +36,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('agendamento');
+    await queryInterface.dropTable('historico_compra');
   }
 };

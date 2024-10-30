@@ -42,22 +42,17 @@ module.exports = {
       data_nascimento: {
         type: Sequelize.DATE
       },
-      data_adesao: {
-        type: Sequelize.DATE
-      },
       data_ultima_aula: {
         type: Sequelize.DATE
       },
       aulas_participadas: {
         type: Sequelize.INTEGER
       },
+      saldo_aulas: {
+        type: Sequelize.INTEGER
+      },
       status_matricula: {
         type: Sequelize.STRING
-      },
-      id_plano: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: { model: 'plano', key: 'id_plano'  }
       },
       createdAt: {
         allowNull: false,

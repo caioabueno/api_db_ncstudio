@@ -27,7 +27,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'GradeAula',
     tableName: 'grade_aula',
-    timestamps: false,
   });
   return GradeAula;
 };
