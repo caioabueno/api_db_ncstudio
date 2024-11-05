@@ -7,27 +7,16 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      dia_semana: {
-        type: Sequelize.STRING
-      },
-      horario: {
-        type: Sequelize.TIME
-      },
+        type: Sequelize.INTEGER },
+      dia_semana: { type: Sequelize.STRING(13), allowNull: false },
+      horario: { type: Sequelize.TIME, allowNull: false },
       id_aula: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'aula', key: 'id_aula'  }
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
+        references: { model: 'aula', key: 'id_aula'  } },
+      createdAt: { allowNull: false, type: Sequelize.DATE },
+      updatedAt: { allowNull: false, type: Sequelize.DATE },
+      deletedAt: { type: Sequelize.DATE, allowNull: true }
     });
   },
   async down(queryInterface, Sequelize) {

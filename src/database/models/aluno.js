@@ -32,7 +32,6 @@ module.exports = (sequelize, DataTypes) => {
     cidade: DataTypes.STRING,
     estado: DataTypes.STRING,
     data_nascimento: DataTypes.DATE,
-    //data_adesao: DataTypes.DATE,
     data_ultima_aula: DataTypes.DATE,
     aulas_participadas: DataTypes.INTEGER,
     saldo_aulas: DataTypes.INTEGER,

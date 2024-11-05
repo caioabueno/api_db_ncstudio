@@ -9,30 +9,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      aulas_compradas: {
-        type: Sequelize.INTEGER
-      },
-      valor_compra: {
-        type: Sequelize.FLOAT
-      },
+      aulas_compradas: { type: Sequelize.INTEGER, allowNull: false },
+      valor_compra: { type: Sequelize.FLOAT, allowNull: false },
       id_aluno: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'aluno', key: 'id_aluno' },
-      },
+        references: { model: 'aluno', key: 'id_aluno' } },
       id_plano: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'plano', key: 'id_plano' },
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
+        references: { model: 'plano', key: 'id_plano' } },
+      createdAt: { type: Sequelize.DATE, allowNull: false },
+      updatedAt: { type: Sequelize.DATE, allowNull: false },
+      deletedAt: { type: Sequelize.DATE, allowNull: true }
     });
   },
   async down(queryInterface, Sequelize) {

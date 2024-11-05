@@ -7,30 +7,17 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      nome: {
-        type: Sequelize.STRING
-      },
-      descricao: {
-        type: Sequelize.STRING
-      },
-      duracao: {
-        type: Sequelize.TIME
-      },
+        type: Sequelize.INTEGER },
+      nome: { type: Sequelize.STRING(30), allowNull: false},
+      descricao: { type: Sequelize.STRING(255), allowNull: true},
+      duracao: { type: Sequelize.TIME, allowNull: true},
       id_professor: {
-        allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'professor', key: 'id_professor'  }
-      },
-      createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
+        references: { model: 'professor', key: 'id_professor'  } },
+      createdAt: { type: Sequelize.DATE, allowNull: false },
+      updatedAt: { type: Sequelize.DATE, allowNull: false },
+      deletedAt: { type: Sequelize.DATE, allowNull: true }
     });
   },
   async down(queryInterface, Sequelize) {
