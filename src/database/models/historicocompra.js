@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'HistoricoCompra',
     tableName: 'historico_compra',
+    paranoid: true,
   });
   return HistoricoCompra;
 };

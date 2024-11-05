@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Agendamento',
     tableName: 'agendamento',
+    paranoid: true,
   });
   return Agendamento;
 };

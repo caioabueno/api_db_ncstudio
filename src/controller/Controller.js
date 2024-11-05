@@ -58,7 +58,7 @@ class Controller {
     try {
       await this.entityService.deleteRecord(Number(id));
       return res.status(200).json({ mensagem: `id ${id} deletado` });
-    } catch (error) {
+    } catch (erro) {
       console.error('Erro ao deletar registro:', erro);
       return res.status(500).json({ erro: 'Erro ao deletar registro' });
     }
