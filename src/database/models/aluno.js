@@ -35,12 +35,18 @@ module.exports = (sequelize, DataTypes) => {
     data_ultima_aula: DataTypes.DATE,
     aulas_participadas: DataTypes.INTEGER,
     saldo_aulas: DataTypes.INTEGER,
-    status_matricula: DataTypes.STRING
+    status_matricula: DataTypes.STRING,
+    senha: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Aluno',
     tableName: 'aluno',
     paranoid: true,
+    defaultScope: {
+      attributes: {
+        exclude: ['senha']
+      }
+    }
   });
   return Aluno;
 };
