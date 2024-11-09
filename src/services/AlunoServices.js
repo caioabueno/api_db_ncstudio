@@ -10,8 +10,7 @@ async createRecord(recordData) {
   // Criptografa a senha antes de criar o registro
   if (recordData.senha) {
     recordData.senha = await bcrypt.hash(recordData.senha, 8);
-  }
-  
+  } 
   // Chama a função `createRecord` da classe mãe para o registro
   return super.createRecord(recordData);
 }

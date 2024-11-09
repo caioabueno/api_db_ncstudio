@@ -1,39 +1,35 @@
 const Services = require('./Services.js');
+const dataSource = require('../database/models');
+const { raw } = require('mysql2');
 
 class AgendamentoServices extends Services {
   constructor(){
     super('Agendamento', 'id_agendamento');
   }
 
-   //ainda não ta funcionando
-  // async getAll() {
-  //   // select personalizado da tabela agendamento
-    
-  //   const options = {
-  //     include: [
-  //       {
-  //         model: dataSource.Aluno,
-  //         as: 'aluno',
-  //         attributes: ['nome'] // Selecionando apenas a coluna 'nome' do Aluno
-  //       },
-  //       {
-  //         model: dataSource.GradeAula,
-  //         as: 'gradeAula',
-  //         include: [ //associação dentro da outra
-  //           {
-  //             model: dataSource.Aula,
-  //             as: 'aula',
-  //             attributes: ['nome'] // Selecionando apenas a coluna 'nome' da Aula
-  //           }
-  //         ],
-  //         attributes: ['horario'] // Selecionando apenas a coluna 'horario' de GradeAula
-  //       }
-  //     ],
-  //     attributes: ['data', 'status'] // Selecionando as colunas específicas do Agendamento
-  //   };
+  async getAllRecords() {
+    return dataSource[this.model].findAll({
+      attributes: ['data','status'],
+      raw: true,
+      include: [
+      {
+        model: dataSource.Aluno,
+        required: true,
+        attributes: ['nome'],
+      },
+      {
+        model: dataSource.GradeAula,
+        require: true,
+        attributes: ['horario'],
+        include: [{
+          model: dataSource.Aula,
+          require: true,
+          attributes: ['nome'],
+        }]
+      }]
+    });
+  }
 
-  //   return this.getAllRecords(options);
-  // }
 
 }
 
