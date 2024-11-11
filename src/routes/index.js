@@ -5,17 +5,19 @@ const agendamentos = require('./agendamentoRoute.js');
 const planos = require('./planoRoute.js');
 const professores = require('./professorRoute');
 const gradesAula = require('./gradeAulaRoute');
-const historicoCompra = require('./historicoCompraRoute.js')
+const historicoCompra = require('./historicoCompraRoute.js');
+const login = require('./authRoute.js');
 
 module.exports = app => {
   app.use(
     express.json(),
-    alunos,
     aulas,
-    agendamentos,
     planos,
-    professores,
     gradesAula,
-    historicoCompra
+    login,
+    alunos,
+    agendamentos,
+    historicoCompra,
+    professores
   );
 }

@@ -1,9 +1,12 @@
 const { Router } = require('express');
 const AlunoController = require('../controller/AlunoController.js');
+const autenticado = require('../middleware/autenticado.js');
 
 const alunoController = new AlunoController();
 
 const router = Router();
+
+router.use(autenticado)
 
 router.get('/alunos', (req, res) => alunoController.getAll(req, res));
 router.get('/alunos/:id', (req, res) => alunoController.getById(req, res));

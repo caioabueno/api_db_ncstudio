@@ -26,12 +26,19 @@ module.exports = (sequelize, DataTypes) => {
     logradouro: DataTypes.STRING,
     bairro: DataTypes.STRING,
     cidade: DataTypes.STRING,
-    estado: DataTypes.STRING
-  }, {
+    estado: DataTypes.STRING,
+    senha: DataTypes.STRING
+  },
+  {
     sequelize,
     modelName: 'Professor',
     tableName: 'professor',
     paranoid: true,
+    defaultScope: {
+      attributes: {
+        exclude: ['senha']
+      }
+    }  
   });
   return Professor;
 };
