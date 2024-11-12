@@ -21,7 +21,7 @@ class Controller {
       return res.status(200).json(singleRecord);
     } catch (erro) {
       console.error('Erro ao buscar registro:', erro);
-      return res.status(500).json({ erro: 'Erro ao criar registro' });
+      return res.status(500).json({ erro: 'Erro ao buscar registro' });
     }
   }
 
