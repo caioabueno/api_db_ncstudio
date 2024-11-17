@@ -22,9 +22,12 @@ router.post('/professores', (req, res) => professorController.createNew(req, res
 router.put('/professores/:id', (req, res) => professorController.update(req, res));
 router.delete('/professores/:id', (req, res) => professorController.delete(req, res));
 
+
+
 //rotas de alunos
 router.get('/adm/alunos', (req, res) => alunoController.getAll(req, res));
 router.get('/adm/alunos/:id', (req, res) => alunoController.getById(req, res));
+router.post('adm/alunos/', (req, res) => alunoController.createNew(req, res));
 router.put('/adm/alunos/:id', (req, res) => alunoController.update(req, res));
 router.delete('/adm/alunos/:id', (req, res) => alunoController.delete(req, res));
 

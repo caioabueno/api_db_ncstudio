@@ -1,4 +1,4 @@
-const { verify, decode } = require('jsonwebtoken');
+const { verify } = require('jsonwebtoken');
 
 module.exports = (requiredUserType) => {
   return async (req, res, next) => {
@@ -13,7 +13,8 @@ module.exports = (requiredUserType) => {
 
       // Verifica se o userType do token corresponde ao tipo de usuário esperado
       if (decoded.userType !== requiredUserType) {
-        return res.status(403).send('Acesso não autorizado para o tipo de usuário');
+        return res.status(403).send(`Acesso não autorizado para o tipo de usuário
+          (Tipo de usuário no token: ${decoded.userType}, Tipo necessário: ${requiredUserType})`);
       }
 
       req.userId = decoded.id;

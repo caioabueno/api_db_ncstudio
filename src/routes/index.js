@@ -9,11 +9,11 @@ const login = require('./authRoute.js');
 module.exports = app => {
   app.use(
     express.json(),
+    login,
     aulas,
     planos,
     gradesAula,
-    login,
     alunos,
-    professores,
+    professores
   );
 }

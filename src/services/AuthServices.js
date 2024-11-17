@@ -43,7 +43,7 @@ class AuthServices {
       { expiresIn: 86400 }
     );
 
-    return { accessToken };
+    return { accessToken, userType };
   }
 }
 
